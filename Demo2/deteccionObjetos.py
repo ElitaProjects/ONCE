@@ -1,4 +1,6 @@
 import sys
+from pathlib import Path
+import os
 
 def main():
     try:
@@ -24,10 +26,8 @@ def main():
                 # Verifica si se puede utilizar la GPU para aceleración (utiliza 'cuda' si está disponible, de lo contrario, 'cpu')
                 self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-                print("antes de cargar el modelo")
                 # Carga el modelo YOLO pre-entrenado
                 self.model = self.load_model()
-                print("después de cargar el modelo")
 
                 # Obtiene el diccionario de nombres de clases del modelo
                 self.CLASS_NAMES_DICT = self.model.model.names
@@ -116,9 +116,9 @@ def main():
 
             def __call__(self):
 
-                self.voices = [["DebajoDerecha.mp3","Debajo.mp3",  "DebajoIzquierda.mp3"],
-                                ["Derecha.mp3",      "Centrado.mp3","Izquierda.mp3"],
-                                ["ArribaDerecha.mp3","Arriba.mp3",  "ArribaIzquierda.mp3"]]
+                self.voices = [[ "Demo2\DebajoDerecha.mp3","Demo2\Debajo.mp3",  "Demo2\DebajoIzquierda.mp3"],
+                                ["Demo2\Derecha.mp3",      "Demo2\Centrado.mp3","Demo2\Izquierda.mp3"],
+                                ["Demo2\ArribaDerecha.mp3","Demo2\Arriba.mp3",  "Demo2\ArribaIzquierda.mp3"]]
 
                 self.mixer = pygame.mixer
                 self.mixer.init()
